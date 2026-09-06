@@ -1,13 +1,15 @@
-# Infernux Linux Platform 0.1.0
+# Infernux Linux Platform 0.2.0
 
-Official platform package for Infernux >=0.4.0,<0.5.
+Official platform package for Infernux ==0.4.0.
 
+- Ships the CMake-precompiled native Player, CPython runtime and optional parallel module in the plugin.
+- Removes source checkout, CMake and engine compilation from ordinary game export.
 - Registers linux-x64 and its platform build integration.
 - Includes English and Simplified Chinese documentation with a build workflow illustration.
 - Ships an installable InxPackage and the engine's compatible-release manifest.
 
 ## Requirements
 
-A Linux x64 installation of Infernux 0.4.0 with its native Player and Python 3.13 runtime pack. Running the game requires a working Vulkan driver and the platform libraries required by the engine.
+Infernux 0.4.0 for Linux x64 with Python 3.13. This plugin owns the matching precompiled Player payload. Running the game requires a working Vulkan driver and the platform libraries required by the engine.
 
 Download the .inxpkg asset to install the plugin. The automatic source archives are for plugin development. See the README for setup, output and troubleshooting details.
