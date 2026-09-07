@@ -1,65 +1,43 @@
 # Infernux Linux Platform
 
-[简体中文](README.zh-CN.md) · [Releases](https://github.com/ChenlizheMe/infernux_linux/releases) · [Infernux](https://github.com/ChenlizheMe/Infernux)
+The official Linux build plugin for [Infernux](https://github.com/ChenlizheMe/Infernux), an open-source game engine with a C++17/Vulkan core and Python authoring layer. It turns an Infernux project into a native Linux x64 game using a Player already compiled for the engine release.
 
-![Linux build workflow](package/plugin_pages/media/overview.png)
+[简体中文](README.zh-CN.md) · [Infernux Engine](https://github.com/ChenlizheMe/Infernux) · [Plugin Template](https://github.com/ChenlizheMe/infernux_plugin_template) · [Releases](https://github.com/ChenlizheMe/infernux_linux/releases)
 
-Build Linux x64 Players using the precompiled Player, CPython runtime and optional parallel module shipped in this plugin. Ordinary exports assemble these files with cooked project content; no engine checkout, CMake, or compiler SDK is required.
+![Infernux Linux export workflow](package/plugin_pages/media/overview.png)
 
-## At a glance
+## What this plugin provides
 
-| Item | Value |
-| --- | --- |
-| Package | `infernux/platform-linux` |
-| Plugin version | 0.2.0 |
-| Engine compatibility | ==0.4.0 |
-| Target | `linux-x64` |
-| Build host | Linux x64 |
-| Rendering | Native Player / Vulkan |
+- The `linux-x64` build target in the Infernux Editor
+- A precompiled native Player, CPython 3.13 runtime, and parallel module
+- Vulkan rendering and the Linux export pipeline
+- Binary game-content packaging instead of an editable project tree
 
-## Install
+| Package | Version | Compatible engine | Build host | Target |
+| --- | --- | --- | --- | --- |
+| `infernux/platform-linux` | 0.2.0 | Infernux 0.4.0 | Linux x64 | Linux x64 |
 
-1. Open your project in Infernux 0.4.0 and open the Plugins panel.
-2. Select Infernux Linux Platform in the official list, then import and enable it.
-3. Open the build settings and select the target. Resolve the reported prerequisites before exporting.
+## Install and use
 
-If your editor's bundled catalog predates this repository, add `https://github.com/ChenlizheMe/infernux_linux` as a GitHub plugin source, or import `infernux.platform-linux.inxpkg` from [Releases](https://github.com/ChenlizheMe/infernux_linux/releases/latest). GitHub's automatic source ZIP is the author repository, not the installable plugin artifact.
+Open **Plugins** in Infernux, select **Infernux Linux Platform** from the official catalog, then import and enable it. Official installs use the Infernux distribution service first and GitHub Releases if that channel is unavailable. Manual installation is available through `infernux.platform-linux.inxpkg` on the Releases page.
 
-## Requirements
+Choose `linux-x64` in the build settings and export. Ship the executable, runtime libraries, and packaged game data as one directory, preserving executable permissions. A Vulkan-capable driver and the system libraries reported by the Player are required at runtime. Users do not compile the engine or run CMake.
 
-Infernux 0.4.0 for Linux x64 with Python 3.13. This plugin owns the matching precompiled Player payload. Running the game requires a working Vulkan driver and the platform libraries required by the engine.
+Linux builds Linux; this package does not cross-compile a Linux Player from Windows.
 
-## Host boundary
+## Repository guide
 
-Linux builds Linux. This package does not cross-compile a Linux Player from Windows. Disabling or uninstalling it removes its target without changing the shared build service.
-
-## Output and troubleshooting
-
-Distribute the complete game directory: native executable, runtime libraries and packaged content. Preserve the executable permission when transferring the Player. Cooked game content uses the engine's binary package rather than exposing the editable Assets/Library directory tree; this is not DRM.
-
-If the target is absent, confirm that the editor host is Linux x64 and the package is enabled. Missing or incompatible Player files require explicitly installing a compatible complete platform release through the plugin's Versions tab. For a Player launch failure, check executable permissions, Vulkan availability and the reported missing system libraries.
-
-## Develop and package
-
-Only `package/` becomes the InxPackage payload. The outer README, SVG illustration sources, release automation and build scripts remain repository files. In-editor documentation is separate, under `package/plugin_pages/`.
+Only `package/` becomes the installable plugin. Repository documentation, build scripts, tests, and CI stay outside the `.inxpkg`.
 
 ```text
 package/
   inx_package.json
   editor/infernux_linux/
   plugin_pages/
-package.py
-release.py
-README.md
-README.zh-CN.md
 ```
 
-Run `python package.py dist/infernux.platform-linux.inxpkg` to package locally. This standalone script uses only Python's standard library and does not require an engine installation. Build outside package/, then place the files to ship inside package/ before packaging.
-
-Maintainers build the engine's `linux-clang-player` CMake preset. It produces the payload directly in this repository's `package/editor/infernux_linux/player/` and the final `.inxpkg` plus release manifest in `dist/`. Release CI builds this exact plugin revision with the matching engine release line on a Linux host. There is no intermediate runtime ZIP or separate archive-transfer channel.
-
-Maintainers run `python release.py v0.2.0` to create the archive and its release manifest. Pushing a matching version tag publishes both files through GitHub Actions. The editor uses that manifest to select a compatible release.
+Maintainers build the engine's `linux-clang-player` preset, which publishes the Player directly into this repository. Pushing a matching `v<version>` tag makes GitHub Actions build and publish the plugin and release manifest.
 
 ## License
 
-[MIT](LICENSE). Third-party SDKs and the engine runtime keep their own licenses; they are not relicensed by this plugin.
+[MIT](LICENSE). Bundled third-party components retain their own licenses.
