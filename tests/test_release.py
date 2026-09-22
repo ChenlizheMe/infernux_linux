@@ -19,8 +19,9 @@ class ReleaseTests(unittest.TestCase):
         shutil.copytree(source / "package", self.root / "package", ignore=shutil.ignore_patterns("player"))
         self.payload = self.root / "package/editor/infernux_linux/player"
         self.payload.mkdir()
+        metadata = json.loads((self.root / "package/inx_package.json").read_text(encoding="utf-8"))
         (self.payload / "Player.inxmanifest").write_text(json.dumps({
-            "engine_version": release.RUNTIME_ENGINE_VERSION, "python_abi": "cp313",
+            "engine_version": release._runtime_engine_version(metadata), "python_abi": "cp313",
             "platform": "linux", "machine": "x86_64", "distribution": "platform-plugin",
         }), encoding="utf-8")
         for name in ("Runtime.inxrt", "Parallel.inxmod"):
@@ -43,6 +44,14 @@ class ReleaseTests(unittest.TestCase):
         document["engine_version"] = "0.3.7"
         manifest.write_text(json.dumps(document), encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "engine/ABI"):
+            release.build_release("v0.2.0")
+
+    def test_release_rejects_non_exact_engine_contract(self):
+        manifest = self.root / "package/inx_package.json"
+        document = json.loads(manifest.read_text(encoding="utf-8"))
+        document["engine"] = ">=0.4.0,<0.5"
+        manifest.write_text(json.dumps(document), encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "exact engine ABI"):
             release.build_release("v0.2.0")
 
     def test_cmake_entry_produces_only_the_final_inxpackage_and_manifest(self):
