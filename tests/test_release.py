@@ -35,7 +35,7 @@ class ReleaseTests(unittest.TestCase):
     def test_release_rejects_exporter_only_package(self):
         (self.payload / "Runtime.inxrt").unlink()
         with self.assertRaises(FileNotFoundError):
-            release.build_release("v0.2.0")
+            release.build_release("v0.2.1")
         self.assertFalse((self.root / "dist").exists())
 
     def test_release_rejects_wrong_engine_payload(self):
@@ -44,15 +44,15 @@ class ReleaseTests(unittest.TestCase):
         document["engine_version"] = "0.3.7"
         manifest.write_text(json.dumps(document), encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "engine/ABI"):
-            release.build_release("v0.2.0")
+            release.build_release("v0.2.1")
 
     def test_release_rejects_non_exact_engine_contract(self):
         manifest = self.root / "package/inx_package.json"
         document = json.loads(manifest.read_text(encoding="utf-8"))
-        document["engine"] = ">=0.4.0,<0.5"
+        document["engine"] = ">=0.4.1,<0.5"
         manifest.write_text(json.dumps(document), encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "exact engine ABI"):
-            release.build_release("v0.2.0")
+            release.build_release("v0.2.1")
 
     def test_cmake_entry_produces_only_the_final_inxpackage_and_manifest(self):
         artifact, manifest = release.build_release()

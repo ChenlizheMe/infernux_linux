@@ -6,7 +6,7 @@
 
 ## 构建前准备
 
-Linux x64 的 Infernux 0.4.0（Python 3.13）。对应的预编译 Player 载荷由本插件提供。运行游戏需要可用的 Vulkan 驱动和引擎要求的平台库。
+Linux x64 的 Infernux 0.4.1（Python 3.13）。对应的预编译 Player 载荷由本插件提供。运行游戏需要可用的 Vulkan 驱动和引擎要求的平台库。
 
 ## 宿主边界
 

@@ -15,7 +15,7 @@
 
 | 包标识 | 版本 | 适配引擎 | 构建环境 | 目标平台 |
 | --- | --- | --- | --- | --- |
-| `infernux/platform-linux` | 0.2.0 | Infernux 0.4.0 | Linux x64 | Linux x64 |
+| `infernux/platform-linux` | 0.2.1 | Infernux 0.4.1 | Linux x64 | Linux x64 |
 
 ## 安装与导出
 

@@ -6,7 +6,7 @@ Build Linux x64 Players using the precompiled Player, CPython runtime and option
 
 ## Before building
 
-Infernux 0.4.0 for Linux x64 with Python 3.13. This plugin owns the matching precompiled Player payload. Running the game requires a working Vulkan driver and the platform libraries required by the engine.
+Infernux 0.4.1 for Linux x64 with Python 3.13. This plugin owns the matching precompiled Player payload. Running the game requires a working Vulkan driver and the platform libraries required by the engine.
 
 ## Host boundary
 
