@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 
 import package
@@ -14,13 +15,11 @@ def _package_metadata(root: Path) -> dict[str, object]:
 
 
 def _runtime_engine_version(metadata: dict[str, object]) -> str:
-    """Derive the Player ABI from the package's single exact engine contract."""
+    """Read the engine version used for this package's initial Player payload."""
     contract = metadata.get("engine")
-    if not isinstance(contract, str) or not contract.startswith("=="):
-        raise ValueError("Platform packages require an exact engine ABI contract")
+    if not isinstance(contract, str) or re.fullmatch(r">=\d+\.\d+\.\d+", contract) is None:
+        raise ValueError("Platform packages require a minimum engine version contract")
     version = contract[2:].strip()
-    if not version or any(marker in version for marker in (",", "*", "!", "<", ">", "~")):
-        raise ValueError("Platform packages require an exact engine ABI contract")
     return version
 
 

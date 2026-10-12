@@ -47,12 +47,12 @@ class ReleaseTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "engine/ABI"):
             release.build_release(self.tag)
 
-    def test_release_rejects_non_exact_engine_contract(self):
+    def test_release_rejects_invalid_minimum_engine_contract(self):
         manifest = self.root / "package/inx_package.json"
         document = json.loads(manifest.read_text(encoding="utf-8"))
-        document["engine"] = ">=0.4.1,<0.5"
+        document["engine"] = "0.4.2"
         manifest.write_text(json.dumps(document), encoding="utf-8")
-        with self.assertRaisesRegex(ValueError, "exact engine ABI"):
+        with self.assertRaisesRegex(ValueError, "minimum engine version"):
             release.build_release(self.tag)
 
     def test_cmake_entry_produces_only_the_final_inxpackage_and_manifest(self):
