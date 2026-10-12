@@ -2,7 +2,7 @@
 
 这是 [Infernux](https://github.com/ChenlizheMe/Infernux) 游戏引擎的官方 Linux 构建插件。它为编辑器提供 Linux x64 导出能力，并随包提供已经为对应引擎版本编译好的 Player 和 Python 运行时。
 
-[English](README.md) · [Infernux 引擎](https://github.com/ChenlizheMe/Infernux) · [插件模板](https://github.com/ChenlizheMe/infernux_plugin_template) · [发布制品](https://github.com/ChenlizheMe/infernux_linux/releases)
+[English](README.md) · [Infernux 引擎](https://github.com/ChenlizheMe/Infernux) · [插件模板](https://github.com/InfernuxEngine/infernux_plugin_template) · [发布制品](https://github.com/InfernuxEngine/infernux_linux/releases)
 
 ![Infernux Linux 导出流程](package/plugin_pages/media/overview.png)
 

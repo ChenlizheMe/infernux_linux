@@ -2,7 +2,7 @@
 
 The official Linux build plugin for [Infernux](https://github.com/ChenlizheMe/Infernux), an open-source game engine with a C++17/Vulkan core and Python authoring layer. It turns an Infernux project into a native Linux x64 game using a Player already compiled for the engine release.
 
-[简体中文](README.zh-CN.md) · [Infernux Engine](https://github.com/ChenlizheMe/Infernux) · [Plugin Template](https://github.com/ChenlizheMe/infernux_plugin_template) · [Releases](https://github.com/ChenlizheMe/infernux_linux/releases)
+[简体中文](README.zh-CN.md) · [Infernux Engine](https://github.com/ChenlizheMe/Infernux) · [Plugin Template](https://github.com/InfernuxEngine/infernux_plugin_template) · [Releases](https://github.com/InfernuxEngine/infernux_linux/releases)
 
 ![Infernux Linux export workflow](package/plugin_pages/media/overview.png)
 
