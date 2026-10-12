@@ -1,27 +1,6 @@
-# 0.2.5 — Infernux 0.4.2
+# 0.2.6 — Infernux 0.4.2 revision 2
 
-- Publish the exporter and matching precompiled Player payload for Infernux 0.4.2.
-- Include the current portable assets, scene lifecycle, physics, rendering and compute fixes.
-- Declare Infernux >=0.4.2 compatibility; this publication includes the Player payload built with Infernux 0.4.2.
-
-# 0.2.1 — Infernux 0.4.1
-
-- Publish the current exporter and precompiled Player payload for Infernux 0.4.1.
-- Include the 041 scene, asset, UI, compute, input and lifecycle fixes from the pinned engine sources.
-- Require Infernux 0.4.1 so old native payloads cannot be installed into the new engine.
-
-# Infernux Linux Platform 0.2.0
-
-Official platform package for Infernux ==0.4.0.
-
-- Ships the CMake-precompiled native Player, CPython runtime and optional parallel module in the plugin.
-- Removes source checkout, CMake and engine compilation from ordinary game export.
-- Registers linux-x64 and its platform build integration.
-- Includes English and Simplified Chinese documentation with a build workflow illustration.
-- Ships an installable InxPackage and the engine's compatible-release manifest.
-
-## Requirements
-
-Infernux 0.4.0 for Linux x64 with Python 3.13. This plugin owns the matching precompiled Player payload. Running the game requires a working Vulkan driver and the platform libraries required by the engine.
-
-Download the .inxpkg asset to install the plugin. The automatic source archives are for plugin development. See the README for setup, output and troubleshooting details.
+- Publish the exporter and precompiled Player payload built with Infernux 0.4.2-v2.
+- Preserve the exact engine-release check for precompiled runtimes.
+- Keep the package engine requirement >=0.4.2.
+- Publish new immutable artifacts; earlier package releases remain unchanged.
