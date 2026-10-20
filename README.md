@@ -15,7 +15,7 @@ The official Linux build plugin for [Infernux](https://github.com/ChenlizheMe/In
 
 | Package | Version | Compatible engine | Build host | Target |
 | --- | --- | --- | --- | --- |
-| `infernux/platform-linux` | 0.2.8 | Infernux >=0.4.3; payload 0.4.3 | Linux x64 | Linux x64 |
+| `infernux/platform-linux` | 0.2.9 | Infernux >=0.4.3; payload 0.4.3 | Linux x64 | Linux x64 |
 
 ## Install and use
 
