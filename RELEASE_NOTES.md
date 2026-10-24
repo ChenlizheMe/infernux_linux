@@ -1,3 +1,9 @@
+# 0.2.14 — Infernux 0.4.3-v5
+
+- Rebuild the complete Linux Player payload against Infernux 0.4.3-v5.
+- Build from frozen engine commit `f683bfa678eb680748c20be91badb9fe668ec553`.
+- Keep the package engine requirement `>=0.4.3`; precompiled Players require the exact matching engine release.
+
 # 0.2.10 — Infernux 0.4.3
 
 - Rebuild against the final asset-error handling changes.
