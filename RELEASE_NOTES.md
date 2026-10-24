@@ -1,3 +1,11 @@
+# 0.2.17 — Infernux 0.4.3-v5 UI shader dependency recovery
+
+- Rebuild from frozen engine commit `ed45567cdceda66bfc7d762a9e0f0bb36c778ebb`.
+- Reject only the affected UI draw when a referenced shader is missing; keep the renderer and healthy UI running.
+- Resume the material through normal asset publication when its shader is restored, retaining the previous valid program after an invalid save.
+- Drain pending asset imports before unloading the plugins they depend on during Editor shutdown.
+- Keep the engine requirement `>=0.4.3` and the exact matching precompiled Player release.
+
 # 0.2.16 — Infernux 0.4.3-v5 embedded host shutdown
 
 - Rebuild from frozen engine commit `3b54b810a8dec25246bd764104a979e92f08b7de`.
