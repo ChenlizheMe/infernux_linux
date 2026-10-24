@@ -1,3 +1,9 @@
+# 0.2.16 — Infernux 0.4.3-v5 embedded host shutdown
+
+- Rebuild from frozen engine commit `3b54b810a8dec25246bd764104a979e92f08b7de`.
+- Preserve the embedded host's native SIGINT handler and complete normal Player cleanup.
+- Retain native scene unloading before asset catalog release, the engine requirement `>=0.4.3`, and the exact matching precompiled Player release.
+
 # 0.2.15 — Infernux 0.4.3-v5 Player shutdown fix
 
 - Rebuild from frozen engine commit `de7cc8c8b0ecbfbb7afd8553f256a1fa236f0aaa`.
