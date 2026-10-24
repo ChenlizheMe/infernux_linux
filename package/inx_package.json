@@ -1,7 +1,7 @@
 {
   "reference": "infernux/platform-linux",
   "name": "Infernux Linux Platform",
-  "version": "0.2.13",
+  "version": "0.2.14",
   "intro": "Build Infernux games for Linux with Vulkan.",
   "intros": {
     "zh-CN": "使用 Vulkan 将 Infernux 游戏构建到 Linux。"
