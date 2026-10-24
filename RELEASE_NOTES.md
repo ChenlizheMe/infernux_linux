@@ -1,3 +1,9 @@
+# 0.2.15 — Infernux 0.4.3-v5 Player shutdown fix
+
+- Rebuild from frozen engine commit `de7cc8c8b0ecbfbb7afd8553f256a1fa236f0aaa`.
+- Unload native scenes before releasing asset catalogs so component shutdown retains font and other asset references.
+- Keep the package engine requirement `>=0.4.3` and exact matching precompiled Player release.
+
 # 0.2.14 — Infernux 0.4.3-v5
 
 - Rebuild the complete Linux Player payload against Infernux 0.4.3-v5.
