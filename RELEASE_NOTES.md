@@ -1,3 +1,9 @@
+# 0.2.19 — Infernux 0.4.3-v7
+
+- Rebuild the complete Linux Player and parallel module from frozen engine commit `1bf2028ffa8a3d42ab7dda32e0ddc4b6faef7627` for the exact 0.4.3-v7 SDK.
+- Include the actual Player `engine_release` in the companion publication manifest so SDK publication can check the advertised payload before release.
+- Retain the `>=0.4.3` package requirement; the precompiled Player requires the matching 0.4.3-v7 engine release and CPython 3.13.
+
 # 0.2.17 — Infernux 0.4.3-v5 UI shader dependency recovery
 
 - Rebuild from frozen engine commit `ed45567cdceda66bfc7d762a9e0f0bb36c778ebb`.

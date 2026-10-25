@@ -37,7 +37,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ChenlizheMe/Infernux
-          ref: 9fcb507c2e5e4ca56cc25323ea6f6ea0d92ac23f
+          ref: 1bf2028ffa8a3d42ab7dda32e0ddc4b6faef7627
           submodules: recursive
           path: engine
       - name: Build this exact plugin revision in its owning subrepository

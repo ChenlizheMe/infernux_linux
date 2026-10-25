@@ -23,6 +23,7 @@ class ReleaseTests(unittest.TestCase):
         self.tag = f"v{self.metadata['version']}"
         (self.payload / "Player.inxmanifest").write_text(json.dumps({
             "engine_version": release._runtime_engine_version(self.metadata), "python_abi": "cp313",
+            "engine_release": release._runtime_engine_version(self.metadata) + "-v7",
             "platform": "linux", "machine": "x86_64", "distribution": "platform-plugin",
         }), encoding="utf-8")
         for name in ("Runtime.inxrt", "Parallel.inxmod"):
@@ -70,6 +71,7 @@ class ReleaseTests(unittest.TestCase):
             self.assertEqual(document["artifact"]["name"], artifact.name)
             self.assertEqual(document["reference"], source["reference"])
             self.assertEqual(document["engine"], source["engine"])
+            self.assertEqual(document["engine_release"], json.loads((self.payload / "Player.inxmanifest").read_text())["engine_release"])
             self.assertEqual(artifact.read_bytes()[:8], b"INXPKG\0\0")
             self.assertGreater(artifact.stat().st_size, 1024)
         self.assertTrue((root / "package/plugin_pages/media/overview.png").is_file())
