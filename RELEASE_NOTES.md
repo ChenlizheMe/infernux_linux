@@ -1,3 +1,9 @@
+# 0.2.20 — Infernux 0.4.3-v8
+
+- Build the complete Player payload from frozen engine commit `e57387c0b65fa0b4838341faafa0572d100e8411`.
+- Match the 0.4.3-v8 SDK, including reversed-Z rendering, isolated camera globals and repaired custom sky depth.
+- Retain the package engine requirement `>=0.4.3`; precompiled Players require the exact matching engine release.
+
 # 0.2.19 — Infernux 0.4.3-v7
 
 - Rebuild the complete Linux Player and parallel module from frozen engine commit `1bf2028ffa8a3d42ab7dda32e0ddc4b6faef7627` for the exact 0.4.3-v7 SDK.
